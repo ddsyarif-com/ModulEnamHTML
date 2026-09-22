@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Formulir Pendaftaran</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #fde9a8; /* kuning lembut */
+    --card:#ffffff;
+    --accent:#f8ffd9; /* hijau sangat pucat untuk input */
+    --text:#0c0c0c;
+    --muted:#6b6b6b;
+    --green:#0b6b3a;
+  }
+  *{box-sizing:border-box;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    padding:32px;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    min-height:100vh;
+  }
+
+  .container{
+    width:100%;
+    max-width:900px;
+    position:relative;
+  }
+
+  /* Header */
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    margin-bottom:18px;
+  }
+  .logo{
+    display:flex;
+    gap:12px;
+    align-items:center;
+  }
+  .logo .icon{
+    width:46px;height:46px;border-radius:50%;background:#ff6b6b;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;
+    font-size:20px;
+  }
+  .org{
+    font-weight:700;
+  }
+  .contact{
+    text-align:right;
+    font-size:12px;
+    color:var(--muted);
+  }
+
+  /* Big title */
+  .title{
+    font-size:56px;
+    line-height:0.85;
+    font-weight:800;
+    margin:6px 0 18px;
+    text-decoration:underline;
+  }
+
+  /* Card */
+  .card{
+    background:var(--card);
+    border-radius:20px;
+    padding:28px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  }
+
+  form{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:18px 28px;
+  }
+
+  label{
+    display:block;
+    font-weight:600;
+    margin-bottom:8px;
+    font-size:14px;
+  }
+
+  .full{
+    grid-column: 1 / -1;
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="date"],
+  textarea,
+  select{
+    width:100%;
+    padding:14px 18px;
+    border-radius:999px;
+    border: none;
+    background:var(--accent);
+    outline: none;
+    font-size:14px;
+    box-shadow: inset 0 1px 0 rgba(0,0,0,0.02);
+  }
+
+  textarea{ min-height:72px; border-radius:12px; padding:12px 14px; resize:vertical; }
+
+  .small-row{
+    display:flex;
+    gap:12px;
+    align-items:center;
+  }
+
+  .small-row input[type="text"]{border-radius:10px;padding:10px 12px}
+
+  /* radio groups */
+  .options{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    flex-wrap:wrap;
+  }
+  .option{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    font-weight:600;
+    font-size:14px;
+  }
+  .option input{width:16px;height:16px}
+
+  /* signature area */
+  .sigs{
+    grid-column:1 / -1;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    margin-top:12px;
+    align-items:flex-end;
+  }
+  .sig{
+    width:45%;
+    text-align:center;
+    font-size:13px;
+    color:var(--muted);
+  }
+  .sig-line{
+    border-top:2px dotted #cfcfcf;
+    margin-top:18px;
+    padding-top:6px;
+  }
+
+  /* decorative shapes (mimic image) */
+  .decor-1{
+    position:absolute;
+    right:8px;
+    top:80px;
+    width:120px;height:120px;
+    background:transparent;
+    transform:rotate(10deg);
+  }
+  .decor-1::before{
+    content:"";
+    display:block;
+    width:100%;height:100%;
+    background:linear-gradient(90deg,#0b6b3a 0 30%, transparent 30%);
+    clip-path:polygon(0 0,100% 0,80% 100%,0 100%);
+    opacity:0.95;
+  }
+  .decor-2{
+    position:absolute;
+    right:20px;
+    bottom:20px;
+    width:80px;height:80px;
+    border-radius:50%;
+    border:8px solid #ff9f80;
+    transform:rotate(-20deg);
+    opacity:0.95;
+  }
+
+  /* responsive */
+  @media (max-width:720px){
+    .title{font-size:40px}
+    form{grid-template-columns:1fr}
+    .sig{width:48%}
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="icon">B</div>
+        <div>
+          <div class="org">Bimbingan Belajar<br><strong>Merah Putih</strong></div>
+        </div>
+      </div>
+      <div class="contact">
+        Jl. Duta Daan 117, Banjar, Jawa Barat 47433<br>
+        Telp: 0123456789 | E-mail: halo@situssupercanggih.co.id
+      </div>
+    </header>
+
+    <h1 class="title">Formulir<br>Pendaftaran</h1>
+
+    <div class="card">
+      <form id="pendaftaran" onsubmit="event.preventDefault(); alert('Form disubmit (demo)');">
+        <div class="full">
+          <label for="nama">Nama Lengkap</label>
+          <input id="nama" name="nama" type="text" placeholder="Masukkan nama lengkap" required>
+        </div>
+
+        <div>
+          <label for="lahir">Tanggal Lahir</label>
+          <input id="lahir" name="tanggal_lahir" type="date">
+        </div>
+
+        <div>
+          <label for="jenkel">Jenis Kelamin</label>
+          <div class="small-row">
+            <label style="font-weight:600;"><input type="radio" name="jenkel" value="P" /> P</label>
+            <label style="font-weight:600;"><input type="radio" name="jenkel" value="L" /> L</label>
+          </div>
+        </div>
+
+        <div>
+          <label for="asal">Asal Sekolah</label>
+          <input id="asal" name="asal_sekolah" type="text" placeholder="Nama sekolah">
+        </div>
+
+        <div>
+          <label for="kelas">Kelas</label>
+          <input id="kelas" name="kelas" type="text" placeholder="Contoh: 7 / 12 IPA">
+        </div>
+
+        <div class="full">
+          <label for="alamat">Alamat</label>
+          <textarea id="alamat" name="alamat" placeholder="Alamat lengkap"></textarea>
+        </div>
+
+        <div>
+          <label for="telp">No. Telepon</label>
+          <input id="telp" name="telepon" type="tel" placeholder="08xxxxxxxxxx">
+        </div>
+
+        <div>
+          <label for="ortu">Nama Orang Tua / Wali</label>
+          <input id="ortu" name="nama_ortu" type="text" placeholder="Nama orang tua/wali">
+        </div>
+
+        <div class="full">
+          <label for="pekerjaan">Pekerjaan Orang Tua</label>
+          <input id="pekerjaan" name="pekerjaan_ortu" type="text" placeholder="Pekerjaan">
+        </div>
+
+        <div class="full">
+          <label for="program">Program Kursus</label>
+          <select id="program" name="program">
+            <option value="">-- Pilih Program --</option>
+            <option>Les Matematika</option>
+            <option>Les IPA</option>
+            <option>Les Bahasa Inggris</option>
+            <option>Persiapan Ujian</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Hari Kursus</label>
+          <div class="options">
+            <label class="option"><input type="radio" name="hari" value="senkam" /> Senin &amp; Kamis</label>
+            <label class="option"><input type="radio" name="hari" value="seljum" /> Selasa &amp; Jumat</label>
+            <label class="option"><input type="radio" name="hari" value="rabusab" /> Rabu &amp; Sabtu</label>
+          </div>
+        </div>
+
+        <div>
+          <label>Waktu Kursus</label>
+          <div class="options">
+            <label class="option"><input type="radio" name="waktu" value="14-15.30" /> 14.00 - 15.30</label>
+            <label class="option"><input type="radio" name="waktu" value="16-17.30" /> 16.00 - 17.30</label>
+            <label class="option"><input type="radio" name="waktu" value="19-20.30" /> 19.00 - 20.30</label>
+          </div>
+        </div>
+
+        <div class="sigs">
+          <div class="sig">
+            <div>Mengetahui,<br>Orang Tua / Wali</div>
+            <div class="sig-line" style="margin-top:40px;">(Tanda Tangan)</div>
+          </div>
+          <div class="sig">
+            <div>Calon Siswa</div>
+            <div class="sig-line" style="margin-top:40px;">(Tanda Tangan)</div>
+          </div>
+        </div>
+
+        <div style="grid-column:1 / -1; margin-top:18px; display:flex; justify-content:flex-end;">
+          <button type="submit" style="padding:10px 18px;border:none;border-radius:12px;background:#0b6b3a;color:white;font-weight:700;cursor:pointer">Kirim</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="decor-1" aria-hidden="true"></div>
+    <div class="decor-2" aria-hidden="true"></div>
+  </div>
+</body>
+</html>

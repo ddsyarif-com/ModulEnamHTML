@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran </title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="container">
+    <header>
+      <div class="logo">
+        <div class="icon">B</div>
+        <div>
+          <div class="org">Bimbingan Belajar<br><strong>Merah Putih</strong></div>
+        </div>
+      </div>
+      <div class="contact">
+        Jl. Duta Daan 117, Banjar, Jawa Barat 47433<br>
+        Telp: 0123456789 | E-mail: halo@situssupercanggih.co.id
+      </div>
+    </header>
+
+    <h1 class="title">Formulir<br>Pendaftaran</h1>
+
+    <div class="card">
+      <form id="pendaftaran" onsubmit="event.preventDefault(); alert('Form disubmit (demo)');">
+        <div class="full">
+          <label for="nama">Nama Lengkap</label>
+          <input id="nama" name="nama" type="text" placeholder="Masukkan nama lengkap" required>
+        </div>
+
+        <div>
+          <label for="lahir">Tanggal Lahir</label>
+          <input id="lahir" name="tanggal_lahir" type="date">
+        </div>
+
+        <div>
+          <label for="jenkel">Jenis Kelamin</label>
+          <div class="small-row">
+            <label style="font-weight:600;"><input type="radio" name="jenkel" value="P" /> P</label>
+            <label style="font-weight:600;"><input type="radio" name="jenkel" value="L" /> L</label>
+          </div>
+        </div>
+
+        <div>
+          <label for="asal">Asal Sekolah</label>
+          <input id="asal" name="asal_sekolah" type="text" placeholder="Nama sekolah">
+        </div>
+
+        <div>
+          <label for="kelas">Kelas</label>
+          <input id="kelas" name="kelas" type="text" placeholder="Contoh: XRPL2">
+        </div>
+
+        <div class="full">
+          <label for="alamat">Alamat</label>
+          <textarea id="alamat" name="alamat" placeholder="Alamat lengkap"></textarea>
+        </div>
+
+        <div>
+          <label for="telp">No. Telepon</label>
+          <input id="telp" name="telepon" type="tel" placeholder="0857********">
+        </div>
+
+        <div>
+          <label for="ortu">Nama Orang Tua / Wali</label>
+          <input id="ortu" name="nama_ortu" type="text" placeholder="Nama orang tua/wali">
+        </div>
+
+        <div class="full">
+          <label for="pekerjaan">Pekerjaan Orang Tua</label>
+          <input id="pekerjaan" name="pekerjaan_ortu" type="text" placeholder="Pekerjaan">
+        </div>
+
+        <div class="full">
+          <label for="program">Program Kursus</label>
+          <select id="program" name="program">
+            <option value="">-- Pilih Program --</option>
+            <option>Les Matematika</option>
+            <option>Les IPA</option>
+            <option>Les Bahasa Inggris</option>
+            <option>Persiapan Ujian</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Hari Kursus</label>
+          <div class="options">
+            <label class="option"><input type="radio" name="hari" value="senkam" /> Senin &amp; Kamis</label>
+            <label class="option"><input type="radio" name="hari" value="seljum" /> Selasa &amp; Jumat</label>
+            <label class="option"><input type="radio" name="hari" value="rabusab" /> Rabu &amp; Sabtu</label>
+          </div>
+        </div>
+
+        <div>
+          <label>Waktu Kursus</label>
+          <div class="options">
+            <label class="option"><input type="radio" name="waktu" value="14-15.30" /> 14.00 - 15.30</label>
+            <label class="option"><input type="radio" name="waktu" value="16-17.30" /> 16.00 - 17.30</label>
+            <label class="option"><input type="radio" name="waktu" value="19-20.30" /> 19.00 - 20.30</label>
+          </div>
+        </div>
+
+        <div class="sigs">
+          <div class="sig">
+            <div>Mengetahui,<br>Orang Tua / Wali</div>
+            <div class="sig-line" style="margin-top:40px;">(Tanda Tangan)</div>
+          </div>
+          <div class="sig">
+            <div>Calon Siswa</div>
+            <div class="sig-line" style="margin-top:40px;">(Tanda Tangan)</div>
+          </div>
+        </div>
+
+        <div style="grid-column:1 / -1; margin-top:18px; display:flex; justify-content:flex-end;">
+          <button type="submit" style="padding:10px 18px;border:none;border-radius:12px;background:#0b6b3a;color:white;font-weight:700;cursor:pointer">Kirim</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="decor-1" aria-hidden="true"></div>
+    <div class="decor-2" aria-hidden="true"></div>
+  </div>
+</body>
+</html>
